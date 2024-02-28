@@ -86,6 +86,7 @@ func check(uid int64) (bool, error) {
 - `generate`对应代码中的`buildSource`函数逻辑
 - `mapper`对应代码中的`executeMappers`函数逻辑
 - `reducer`对应代码中的`go func() {... reducer(collector, writer, cancel) ...}`逻辑
+
 ![](./img.png)
 
 

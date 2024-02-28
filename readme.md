@@ -5,13 +5,13 @@
 ### 为什么需要 `MapReduce`
 在实际的业务场景中我们常常需要从不同的 rpc 服务中获取相应属性来组装成复杂对象。
 比如要查询商品详情：
-
-商品服务-查询商品属性
-库存服务-查询库存属性
-价格服务-查询价格属性
-营销服务-查询营销属性
+- 商品服务-查询商品属性
+- 库存服务-查询库存属性
+- 价格服务-查询价格属性
+- 营销服务-查询营销属性
 
 如果是串行调用的话响应时间会随着 rpc 调用次数呈线性增长，所以我们要优化性能一般会将串行改并行。
+
 简单的场景下使用 waitGroup 也能够满足需求，但是如果我们需要对数据进行校验、数据加工转换、数据汇总呢？继续使用 waitGroup 就有点力不从心了。
 
 
@@ -83,11 +83,9 @@ func check(uid int64) (bool, error) {
 
 ### MapReduce代码架构 
 
-
-
-`generate`对应代码中的`buildSource`函数逻辑
-`mapper`对应代码中的`executeMappers`函数逻辑
-`reducer`对应代码中的`go func() {... reducer(collector, writer, cancel) ...}`逻辑
+- `generate`对应代码中的`buildSource`函数逻辑
+- `mapper`对应代码中的`executeMappers`函数逻辑
+- `reducer`对应代码中的`go func() {... reducer(collector, writer, cancel) ...}`逻辑
 ![](./img.png)
 
 

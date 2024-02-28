@@ -1,6 +1,6 @@
 # Golang实现并行计算
 
-代码地址:
+代码地址: https://github.com/gofish2020/easymr
 
 ### 为什么需要 `MapReduce`
 在实际的业务场景中我们常常需要从不同的 rpc 服务中获取相应属性来组装成复杂对象。
